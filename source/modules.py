@@ -7,6 +7,7 @@ class mainmenu:
         self.mode = mode()
     def create(self):
         w=Tk()
+        #w.iconbitmap('images/icon.xpm')
         w.title("Noten")
         w.geometry("1000x800")
         w.config(bg='white')
@@ -32,6 +33,7 @@ class mode:
         self.answer = None
     def start(self):
         master=Tk()
+        #master.iconbitmap('images/icon.xpm')
         master.title("Noten")
         w=Canvas(master,bg='white',width=1000, height=800)
         def ok():
@@ -80,6 +82,7 @@ class mode:
         w.pack()
     def rrun(self,sopran, bass, kreuz,b,doppelb,doppelkreuz):
         master=Tk()
+        #master.iconbitmap('images/icon.xpm')
         master.title("Noten")
         w=Canvas(master,bg='white',width=1000,height=800)
         def ok():
@@ -99,6 +102,7 @@ class mode:
     def run(self,sopran, bass, kreuz,b,doppelb,doppelkreuz):
         
         master=Tk()
+        #master.iconbitmap('images/icon.xpm')
         master.title("Noten")
         
         basslist=["E","F","G","A","H","c","d","e","f","g","a","h","c'"]
@@ -132,15 +136,16 @@ class mode:
                 blank = PhotoImage(file='images/blank.png')
 
 
-                doppelb = PhotoImage(file='images/doppelb.png')
-                doppelkreuz = PhotoImage(file='images/doppelkreuz.png')
+                doppelbim = PhotoImage(file='images/doppelb.png')
+                doppelkreuzim = PhotoImage(file='images/doppelkreuz.png')
                 
-                vzlist=[blank,h,b,doppelkreuz,doppelb]
+                vzlist=[blank,h,b,doppelkreuzim,doppelbim]
 
                 w.create_image(50,100,image=img,anchor='nw')
                 w.update()
                 
                 no=random.randint(0,12)
+
                 rightanswer=sopranlist[no]
                 
                 w.create_image(500,notecordlist[no][1],image=note,anchor='center')
@@ -205,6 +210,8 @@ class mode:
                     newstr=rightanswer.strip("'")
                     if newstr=='a' or newstr=='A':
                         strrd = newstr+'ses'+"'"*stripc
+                    elif newstr=='e' or newstr=='E':
+                        strrd = newstr+'ses'+"'"*stripc
                     else:
                         strrd = newstr+"eses"+"'"*stripc
                     rightanswer = str(strrd)
@@ -222,10 +229,10 @@ class mode:
                 b = PhotoImage(file='images/b.png')
                 h = PhotoImage(file='images/kreuz.png')
                 blank = PhotoImage(file='images/blank.png')
-                doppelb = PhotoImage(file='images/doppelb.png')
-                doppelkreuz = PhotoImage(file='images/doppelkreuz.png')
+                doppelbim = PhotoImage(file='images/doppelb.png')
+                doppelkreuzim = PhotoImage(file='images/doppelkreuz.png')
                 
-                vzlist=[blank,h,b,doppelkreuz,doppelb]
+                vzlist=[blank,h,b,doppelkreuzim,doppelbim]
                 w.create_image(50,100,image=img,anchor='nw')
                 w.update()
                 
@@ -244,7 +251,7 @@ class mode:
                     vorlist.append(3)
                 if doppelb == 1:
                     vorlist.append(4)
-                    
+                
                 bkt = random.choice(vorlist)
                 
                 if bkt == 1:
@@ -344,7 +351,15 @@ class mode:
                     self.answer = None
                     master.unbind('<Return>')
                     wrongImg = PhotoImage(file="./images/wrong.png")
+                    rilab = Label(w,
+                                text="Richtige Antwort: "+rightanswer,
+                                bg = "#00ff15",
+                                fg = "blue",
+                                anchor="nw",
+                                relief=FLAT,
+                                font=10)
                     w.create_image(500,400,image=wrongImg, anchor='center')
+                    rilab.place(x=400,y=520)
                     w.update()
                     time.sleep(4)
                     w.destroy()
@@ -354,7 +369,7 @@ class mode:
                 #print(self.answer)
                 loop += 1
                 w.update()
-        print("falsche Antworten: "+str(wrong)+ " richtige Antworten: "+str(right))
+       
         master.config(bg='white')
         def menu():
             main = mainmenu()
