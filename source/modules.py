@@ -2,30 +2,51 @@ from tkinter import *
 #import images
 import random
 import time
+import platform
+import webbrowser
 class mainmenu:
     def __init__(self):
         self.mode = mode()
-    def create(self):
+    def create(self,update):
+        if update:
+            self.updateavailable()
+        else:
+            w=Tk()
+            #w.iconbitmap('images/icon.xpm')
+            w.title("Noten")
+            w.geometry("1000x800")
+            w.config(bg='white')
+            def E():
+                w.destroy()
+                #mode = mode()
+                self.mode.start()
+            einfach=Button(w,
+                        text="Spielen",
+                        bg='green',
+                        fg='black',
+                        relief=GROOVE,
+                        width=40,
+                        font=10,
+                        command=E)
+            #schwer.place(x=300,y=430)
+            einfach.place(x=300,y=350)
+            #mittel.place(x=300,y=390)
+            w.mainloop()
+    def updateavailable(self):
         w=Tk()
         #w.iconbitmap('images/icon.xpm')
         w.title("Noten")
         w.geometry("1000x800")
         w.config(bg='white')
-        def E():
-            w.destroy()
-            #mode = mode()
-            self.mode.start()
-        einfach=Button(w,
-                       text="Spielen",
-                       bg='green',
-                       fg='black',
-                       relief=GROOVE,
-                       width=40,
-                       font=10,
-                       command=E)
-        #schwer.place(x=300,y=430)
-        einfach.place(x=300,y=350)
-        #mittel.place(x=300,y=390)
+        def down():
+            if platform.system()=="Windows":
+                webbrowser.open_new_tab("https://github.com/StarMiner99/musik/raw/master/windows/musik-latest.exe")
+            else:
+                webbrowser.open_new_tab("https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/StarMiner99/musik/tree/master/source")
+        text = Label(w,text="Es gibt ein neues Update!")
+        download = Button(w, text="DOWNLOAD",bg="red",command=down)
+        text.place(x=300,y=350)
+        download.place(x=300,y=450)
         w.mainloop()
         
 class mode:
@@ -374,7 +395,7 @@ class mode:
         def menu():
             main = mainmenu()
             master.destroy()
-            main.create()
+            main.create(False)
         def close():
             master.destroy()
 
