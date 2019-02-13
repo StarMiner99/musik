@@ -8,13 +8,9 @@ import urllib.request
 class updater:
     def look(self):
         changes = False
-        modsumonline = self.onlinemd5sum("https://github.com/StarMiner99/musik/raw/master/source/modules.py")
-        modsumoffline = self.offlinemd5sum("modules.py")
-        mainsumonline = self.onlinemd5sum("https://github.com/StarMiner99/musik/raw/master/source/main.py")
-        mainsumoffline = self.offlinemd5sum("main.py")
-        if not modsumoffline == modsumonline:
-            changes = True
-        if not mainsumoffline == mainsumonline:
+        ver = self.onlinemd5sum("https://github.com/StarMiner99/musik/raw/master/source/version")
+        veroff = self.offlinemd5sum("version")
+        if not ver == veroff:
             changes = True
         return changes
     def onlinemd5sum(self, link):

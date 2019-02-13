@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Tk,Canvas,Button,GROOVE,Label,FLAT,IntVar,Checkbutton,PhotoImage,Entry
 #import images
 import random
 import time
@@ -132,6 +132,7 @@ class mode:
         wrong = 0
         right = 0
         for x in range(0,10):
+            x.to_bytes()
             self.answer = None
             w=Canvas(master,bg='white',width=1000,height=800)
             w.create_text(300,50,font=100,anchor='nw',fill='black',text="Gebe die Notennamen ein(vergesse die Striche nicht)")
