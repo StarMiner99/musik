@@ -10,28 +10,28 @@ class mainmenu:
     def create(self,update):
         if update:
             self.updateavailable()
-        else:
-            w=Tk()
-            #w.iconbitmap('images/icon.xpm')
-            w.title("Noten")
-            w.geometry("1000x800")
-            w.config(bg='white')
-            def E():
-                w.destroy()
-                #mode = mode()
-                self.mode.start()
-            einfach=Button(w,
-                        text="Spielen",
-                        bg='green',
-                        fg='black',
-                        relief=GROOVE,
-                        width=40,
-                        font=10,
-                        command=E)
-            #schwer.place(x=300,y=430)
-            einfach.place(x=300,y=350)
-            #mittel.place(x=300,y=390)
-            w.mainloop()
+        
+        w=Tk()
+        #w.iconbitmap('images/icon.xpm')
+        w.title("Noten")
+        w.geometry("1000x800")
+        w.config(bg='white')
+        def E():
+            w.destroy()
+            #mode = mode()
+            self.mode.start()
+        einfach=Button(w,
+                    text="Spielen",
+                    bg='green',
+                    fg='black',
+                    relief=GROOVE,
+                    width=40,
+                    font=10,
+                    command=E)
+        #schwer.place(x=300,y=430)
+        einfach.place(x=300,y=350)
+        #mittel.place(x=300,y=390)
+        w.mainloop()
     def updateavailable(self):
         w=Tk()
         #w.iconbitmap('images/icon.xpm')
