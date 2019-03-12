@@ -13,7 +13,7 @@ class mainmenu:
         
         w=Tk()
         #w.iconbitmap('images/icon.xpm')
-        w.title("Noten")
+        w.title("TBM-Notentraining")
         w.geometry("1000x800")
         w.config(bg='white')
         def E():
@@ -35,7 +35,7 @@ class mainmenu:
     def updateavailable(self):
         w=Tk()
         #w.iconbitmap('images/icon.xpm')
-        w.title("Noten")
+        w.title("TBM-Notentraining")
         w.geometry("1000x800")
         w.config(bg='white')
         def down():
@@ -55,15 +55,15 @@ class mode:
     def start(self):
         master=Tk()
         #master.iconbitmap('images/icon.xpm')
-        master.title("Noten")
+        master.title("TBM-Notentraining")
         w=Canvas(master,bg='white',width=1000, height=800)
         def ok():
-            if sopran.get() == 0 and bass.get() == 0:
+            if violin.get() == 0 and bass.get() == 0:
                 erlabel.place(x=300,y=450)
                 w.update()
             else:
                 master.destroy()
-                self.rrun(sopran.get(),bass.get(),kreuz.get(),b.get(),doppelb.get(),doppelkreuz.get())
+                self.rrun(violin.get(),bass.get(),kreuz.get(),b.get(),doppelb.get(),doppelkreuz.get())
             
         Ok=Button(w,
                   text="OK",
@@ -74,25 +74,25 @@ class mode:
                   font=10,
                   command=ok)
         erlabel=Label(w,
-                      text='Bitte kreuze Sopranschluesel und/oder Bassschluesel an.',
+                      text='Bitte kreuze Violinschluesel und/oder Bassschluesel an.',
                       bg='red',
                       fg='black',
                       relief=FLAT,
                       font=7)
-        Ok.place(x=300,y=700)
-        sopran=IntVar()
+        Ok.place(x=300,y=500)
+        violin=IntVar()
         bass=IntVar()
         kreuz=IntVar()
         b=IntVar()
         doppelb = IntVar()
         doppelkreuz=IntVar()
 
-        O1= Checkbutton(w,text="Sopranschluessel: ",variable=sopran,bg='green',fg='black',relief=GROOVE,font=10)
+        O1= Checkbutton(w,text="Violinschluessel: ",variable=violin,bg='green',fg='black',relief=GROOVE,font=10)
         O2= Checkbutton(w,text="Bassschluessel: ",variable=bass,bg='green',fg='black',relief=GROOVE,font=10)
         O3= Checkbutton(w,text="Kreuz: ",variable=kreuz,bg='green',fg='black',relief=GROOVE,font=10)
-        O4=Checkbutton(w,text="B: ",variable=b,bg='green',fg='black',relief=GROOVE,font=10)
+        O4=Checkbutton(w,text='"Be":',variable=b,bg='green',fg='black',relief=GROOVE,font=10)
         O5=Checkbutton(w,text="Doppelkreuz: ",variable=doppelkreuz,bg='green',fg='black',relief=GROOVE,font=10)
-        O6=Checkbutton(w,text="Doppelb: ",variable=doppelb,bg='green',fg='black',relief=GROOVE,font=10)
+        O6=Checkbutton(w,text='"Doppelbe": ',variable=doppelb,bg='green',fg='black',relief=GROOVE,font=10)
 
         O6.place(x=300,y=350)
         O5.place(x=300,y=300)
@@ -104,7 +104,7 @@ class mode:
     def rrun(self,sopran, bass, kreuz,b,doppelb,doppelkreuz):
         master=Tk()
         #master.iconbitmap('images/icon.xpm')
-        master.title("Noten")
+        master.title("TBM-Notentraining")
         w=Canvas(master,bg='white',width=1000,height=800)
         def ok():
             master.destroy()
@@ -118,13 +118,13 @@ class mode:
                   width=40,
                   font=10,
                   command=ok)
-        Ok.place(x=300,y=700)
+        Ok.place(x=300,y=600)
         w.pack()
     def run(self,sopran, bass, kreuz,b,doppelb,doppelkreuz):
         
         master=Tk()
         #master.iconbitmap('images/icon.xpm')
-        master.title("Noten")
+        master.title("TBM-Notentraining")
         
         basslist=["E","F","G","A","H","c","d","e","f","g","a","h","c'"]
         sopranlist=["c'","d'","e'","f'","g'","a'","h'","c''","d''","e''","f''","g''","a''"]
@@ -346,8 +346,8 @@ class mode:
             master.bind('<Return>',self.ok)
 ##            print(best)
 
-            best.place(x=700, y=650)
-            self.user_Entry.place(x=250,y=650)
+            best.place(x=700, y=600)
+            self.user_Entry.place(x=250,y=600)
             self.user_Entry.focus()
 
             w.update()
