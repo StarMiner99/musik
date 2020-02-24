@@ -3,13 +3,13 @@
 ### Option 1 ausfuehrbare datei herunterladen:
 #### Windows:
 - downloaden sie die datei ***windows/musik-{version}.exe***
-- fuehren sie diese datei aus und folgen sie den schritten vom Installer.
-- oefnen sie nun das programm "Musik".
+- üehren sie diese datei aus und folgen sie den schritten vom Installer.
+- öfnen sie nun das programm "Musik".
 ### Option 2 compilieren:
 - installieren sie [Python 3](https://www.python.org/ )
 
 - oefnen sie eine Komandozentrale
-- geben sie ein (benoetigt einen root zugang): 
+- geben sie ein (benötigt einen root zugang): 
 ```bash
 pip3 install pyinstaller
 ```
